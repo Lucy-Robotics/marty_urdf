@@ -13,8 +13,9 @@
 
   <!-- Main Structure -->
 
+  <!-- Lucy: base_link sits on the ground under the feet (lowest point at the zero pose). -->
   <xacro:fixed name="head" parent="base_link" material="blue" mesh="head">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <origin xyz="0 0 0.15338" rpy="0 0 0"/>
   </xacro:fixed>
 
   <xacro:fixed name="side_panel_left" parent="head" material="yellow" mesh="side_panel">

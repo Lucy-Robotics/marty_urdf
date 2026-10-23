@@ -22,7 +22,8 @@ Workspace contract for robot packages: [`lucy_ws/docs/adding_robot_packages.md`]
 The kinematic tree and meshes are ported from `marty2_description`
 (Apache-2.0, license kept in `description/robot_description/LICENSE.marty2_description`).
 Lucy changes: meshes resolve through `${mesh_dir}` (`file://` + `base_path`) instead of
-`package://marty2_description`, and the entry xacro follows the Lucy include pattern.
+`package://marty2_description`, the entry xacro follows the Lucy include pattern, and the
+head is lifted 0.15338 m so `base_link` sits on the ground under the feet.
 
 Links carry placeholder inertias (1e-5 kg), so Gazebo pins `base_link` to the world
 with the feet resting on the ground (`marty_gazebo_physics.xacro`); the robot cannot balance or walk in sim.

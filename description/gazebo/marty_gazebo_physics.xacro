@@ -8,8 +8,8 @@
   <joint name="world_to_base" type="fixed">
     <parent link="world"/>
     <child link="base_link"/>
-    <!-- Feet bottoms sit 0.15338 m below base_link at the zero pose; lift so they rest on the ground. -->
-    <origin xyz="0 0 0.15338" rpy="0 0 0"/>
+    <!-- base_link is already at the feet bottoms (see head joint origin). -->
+    <origin xyz="0 0 0" rpy="0 0 0"/>
   </joint>
 
   <xacro:macro name="gazebo_foot" params="link">
