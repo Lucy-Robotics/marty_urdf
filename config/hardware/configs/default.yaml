@@ -1,0 +1,153 @@
+version: 1
+robot_name: marty
+generated_files:
+  ros2_control_xacro: marty_ros2_control.xacro
+  controllers_yaml: controllers.yaml
+passive_urdf_joints: []
+ignore_urdf_joints: []
+
+cameras: []
+
+firmware:
+  source_dir: lucy_embedded_firmware
+  build_dir: build/firmware
+
+controller_manager:
+  update_rate: 100
+
+# Placeholder board: Marty's servos sit behind Robotical's RIC controller, which
+# Lucy has no driver for yet. Actuators stay disabled until the wiring is real.
+boards:
+  rp2040_marty:
+    serial_id: ''
+    board_class: internal_servo_only
+    slave_address: 1
+    internal_servo_slots: 9
+    firmware_target: lucy_marty
+    compile_definition: USE_MARTY
+    topic_actuators: actuators/marty
+    topic_sensors: sensors/marty
+    controller:
+      name: marty_controller
+      type: joint_trajectory_controller/JointTrajectoryController
+
+actuators:
+  - id: eye_left
+    urdf_joint: eye_left_joint
+    board: rp2040_marty
+    virtual_pin: 0
+    physical_pin: 1
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+  - id: arm_servo_gear_left
+    urdf_joint: arm_servo_gear_left_joint
+    board: rp2040_marty
+    virtual_pin: 1
+    physical_pin: 2
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+  - id: arm_servo_gear_right
+    urdf_joint: arm_servo_gear_right_joint
+    board: rp2040_marty
+    virtual_pin: 2
+    physical_pin: 3
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+  - id: leg_left_thigh
+    urdf_joint: leg_left_thigh_joint
+    board: rp2040_marty
+    virtual_pin: 3
+    physical_pin: 4
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+  - id: leg_right_thigh
+    urdf_joint: leg_right_thigh_joint
+    board: rp2040_marty
+    virtual_pin: 4
+    physical_pin: 5
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+  - id: leg_left_twist
+    urdf_joint: leg_left_twist_joint
+    board: rp2040_marty
+    virtual_pin: 5
+    physical_pin: 6
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+  - id: leg_right_twist
+    urdf_joint: leg_right_twist_joint
+    board: rp2040_marty
+    virtual_pin: 6
+    physical_pin: 7
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+  - id: leg_left_shin
+    urdf_joint: leg_left_shin_joint
+    board: rp2040_marty
+    virtual_pin: 7
+    physical_pin: 8
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+  - id: leg_right_shin
+    urdf_joint: leg_right_shin_joint
+    board: rp2040_marty
+    virtual_pin: 8
+    physical_pin: 9
+    servo_type: '180'
+    offset: 1.5708
+    direction: 1
+    scale: 1
+    limit_min: 0
+    limit_max: 3.14159
+    default: 1.5708
+    enabled: false
+
+sensors: []

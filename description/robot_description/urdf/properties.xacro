@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!-- Marty v2 model properties. Mesh paths come from the entry xacro (mesh_dir). -->
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="marty">
+  <!-- Source meshes and origins are already in meters. -->
+  <xacro:property name="model_scale" value="1.0"/>
+</robot>
