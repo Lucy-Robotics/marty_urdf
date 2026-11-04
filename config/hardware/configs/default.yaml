@@ -3,8 +3,30 @@ robot_name: marty
 generated_files:
   ros2_control_xacro: marty_ros2_control.xacro
   controllers_yaml: controllers.yaml
-passive_urdf_joints: []
-ignore_urdf_joints: []
+passive_urdf_joints:
+  - arm_left_joint
+  - arm_right_joint
+  - eye_right_joint
+  - foot_left_joint
+  - foot_right_joint
+  - leg_left_knee_upper_joint
+  - leg_left_shin_interior_joint
+  - leg_left_thigh_back_joint
+  - leg_right_knee_upper_joint
+  - leg_right_shin_exterior_joint
+  - leg_right_thigh_back_joint
+ignore_urdf_joints:
+  - hand_left_joint
+  - hand_right_joint
+  - head_joint
+  - hip_left_joint
+  - hip_right_joint
+  - leg_left_knee_lower_joint
+  - leg_left_twist_upper_joint
+  - leg_right_knee_lower_joint
+  - leg_right_twist_upper_joint
+  - side_panel_left_joint
+  - side_panel_right_joint
 
 cameras: []
 
@@ -38,12 +60,12 @@ actuators:
     virtual_pin: 0
     physical_pin: 1
     servo_type: '180'
-    offset: 1.5708
+    offset: 3.0
     direction: 1
     scale: 1
     limit_min: 0
-    limit_max: 3.14159
-    default: 1.5708
+    limit_max: 3.25
+    default: 3.0
     enabled: false
   - id: arm_servo_gear_left
     urdf_joint: arm_servo_gear_left_joint
@@ -51,12 +73,12 @@ actuators:
     virtual_pin: 1
     physical_pin: 2
     servo_type: '180'
-    offset: 1.5708
+    offset: 0.95
     direction: 1
     scale: 1
     limit_min: 0
-    limit_max: 3.14159
-    default: 1.5708
+    limit_max: 3.0
+    default: 0.95
     enabled: false
   - id: arm_servo_gear_right
     urdf_joint: arm_servo_gear_right_joint
@@ -64,12 +86,12 @@ actuators:
     virtual_pin: 2
     physical_pin: 3
     servo_type: '180'
-    offset: 1.5708
+    offset: 0.95
     direction: 1
     scale: 1
     limit_min: 0
-    limit_max: 3.14159
-    default: 1.5708
+    limit_max: 3.0
+    default: 0.95
     enabled: false
   - id: leg_left_thigh
     urdf_joint: leg_left_thigh_joint

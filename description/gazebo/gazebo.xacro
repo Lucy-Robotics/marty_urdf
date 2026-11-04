@@ -9,36 +9,36 @@
     <joint name="eye_left_joint">
       <param name="virtual_pin">0</param>
       <param name="servo_type">180</param>
-      <param name="offset">1.5708</param>
+      <param name="offset">3.0</param>
       <param name="direction">1</param>
       <param name="scale">1</param>
       <param name="limit_min">0</param>
-      <param name="limit_max">3.14159</param>
-      <param name="default">1.5708</param>
+      <param name="limit_max">3.25</param>
+      <param name="default">3.0</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
     <joint name="arm_servo_gear_left_joint">
       <param name="virtual_pin">1</param>
       <param name="servo_type">180</param>
-      <param name="offset">1.5708</param>
+      <param name="offset">0.95</param>
       <param name="direction">1</param>
       <param name="scale">1</param>
       <param name="limit_min">0</param>
-      <param name="limit_max">3.14159</param>
-      <param name="default">1.5708</param>
+      <param name="limit_max">3.0</param>
+      <param name="default">0.95</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>
     <joint name="arm_servo_gear_right_joint">
       <param name="virtual_pin">2</param>
       <param name="servo_type">180</param>
-      <param name="offset">1.5708</param>
+      <param name="offset">0.95</param>
       <param name="direction">1</param>
       <param name="scale">1</param>
       <param name="limit_min">0</param>
-      <param name="limit_max">3.14159</param>
-      <param name="default">1.5708</param>
+      <param name="limit_max">3.0</param>
+      <param name="default">0.95</param>
       <command_interface name="position" />
       <state_interface name="position" />
     </joint>

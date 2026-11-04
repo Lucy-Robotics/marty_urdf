@@ -17,50 +17,56 @@
       <joint name="eye_left_joint">
           <param name="virtual_pin">0</param>
           <param name="servo_type">180</param>
-          <param name="offset">1.5708</param>
+          <param name="offset">3.0</param>
           <param name="direction">1</param>
           <param name="scale">1</param>
           <param name="limit_min">0</param>
-          <param name="limit_max">3.14159</param>
-          <param name="default">1.5708</param>
+          <param name="limit_max">3.25</param>
+          <param name="default">3.0</param>
           <command_interface name="torque_enable"/>
           <command_interface name="position">
             <param name="min">-3.0</param>
             <param name="max">0.25</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
       <joint name="arm_servo_gear_left_joint">
           <param name="virtual_pin">1</param>
           <param name="servo_type">180</param>
-          <param name="offset">1.5708</param>
+          <param name="offset">0.95</param>
           <param name="direction">1</param>
           <param name="scale">1</param>
           <param name="limit_min">0</param>
-          <param name="limit_max">3.14159</param>
-          <param name="default">1.5708</param>
+          <param name="limit_max">3.0</param>
+          <param name="default">0.95</param>
           <command_interface name="torque_enable"/>
           <command_interface name="position">
             <param name="min">-0.95</param>
             <param name="max">2.05</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
       <joint name="arm_servo_gear_right_joint">
           <param name="virtual_pin">2</param>
           <param name="servo_type">180</param>
-          <param name="offset">1.5708</param>
+          <param name="offset">0.95</param>
           <param name="direction">1</param>
           <param name="scale">1</param>
           <param name="limit_min">0</param>
-          <param name="limit_max">3.14159</param>
-          <param name="default">1.5708</param>
+          <param name="limit_max">3.0</param>
+          <param name="default">0.95</param>
           <command_interface name="torque_enable"/>
           <command_interface name="position">
             <param name="min">-0.95</param>
             <param name="max">2.05</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
       <joint name="leg_left_thigh_joint">
           <param name="virtual_pin">3</param>
@@ -77,6 +83,8 @@
             <param name="max">1.0</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
       <joint name="leg_right_thigh_joint">
           <param name="virtual_pin">4</param>
@@ -93,6 +101,8 @@
             <param name="max">1.0</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
       <joint name="leg_left_twist_joint">
           <param name="virtual_pin">5</param>
@@ -109,6 +119,8 @@
             <param name="max">1.0</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
       <joint name="leg_right_twist_joint">
           <param name="virtual_pin">6</param>
@@ -125,6 +137,8 @@
             <param name="max">1.0</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
       <joint name="leg_left_shin_joint">
           <param name="virtual_pin">7</param>
@@ -141,6 +155,8 @@
             <param name="max">1.0</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
       <joint name="leg_right_shin_joint">
           <param name="virtual_pin">8</param>
@@ -157,6 +173,8 @@
             <param name="max">1.0</param>
           </command_interface>
           <state_interface name="position" />
+          <state_interface name="temperature" />
+          <state_interface name="effort" />
       </joint>
   </ros2_control>
 
