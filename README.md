@@ -3,7 +3,7 @@
 Robotical Marty v2 description package for the Lucy workspace (URDF, ros2_control, Gazebo, RViz).
 
 - 9 actuated joints (eyes, arms, hip / twist / knee per leg) on one `marty_controller`
-- Mock hardware supported; Gazebo files are generated but untested; real hardware is a disabled placeholder until a driver exists
+- Mock hardware and Gazebo supported; real hardware is a disabled placeholder until a driver exists
 
 Select it with `robot_package:=marty_urdf` (or `LUCY_ROBOT_PACKAGE=marty_urdf`).
 See [docs/DEVELOPER.md](docs/DEVELOPER.md) for joints, hardware status and regeneration.

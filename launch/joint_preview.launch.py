@@ -23,11 +23,9 @@ Sliders honor URDF <limit> tags. Use after editing robot_description.urdf.xacro
   ros2 launch marty_urdf joint_preview.launch.py
 
 Pass ``jsp_gui:=false`` to suppress the joint-state-publisher-gui sliders —
-useful when an external publisher (e.g. ``scripts/autocalibrate_joint_limits.py
---view rviz``) drives ``/joint_states`` instead.
+useful when an external publisher drives ``/joint_states`` instead.
 """
 
-import os
 from pathlib import Path
 
 from ament_index_python.packages import get_package_share_directory
@@ -50,16 +48,12 @@ def _default_paths():
         str(description / "urdf" / "marty.urdf.xacro"),
         str(description),
         str(root / "config" / "controllers.yaml"),
+        str(root / "config" / "marty_rviz.rviz"),
     )
 
 
 def generate_launch_description():
-    default_urdf, default_base, default_controllers = _default_paths()
-    default_rviz = os.path.join(
-        get_package_share_directory("marty_urdf"),
-        "config",
-        "marty_rviz.rviz",
-    )
+    default_urdf, default_base, default_controllers, default_rviz = _default_paths()
 
     urdf_path_arg = DeclareLaunchArgument(
         "urdf_path",
@@ -85,7 +79,7 @@ def generate_launch_description():
         "jsp_gui",
         default_value="true",
         description="Spawn joint_state_publisher_gui (set false when an external "
-        "publisher drives /joint_states, e.g. autocalibrate_joint_limits.py --view rviz)",
+        "publisher drives /joint_states)",
     )
 
     urdf_path = LaunchConfiguration("urdf_path")

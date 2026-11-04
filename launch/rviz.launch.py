@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Real robot + RViz + rosbridge. Control stack comes from control.launch.py.
+# RViz only. The control stack comes from control.launch.py.
 from launch import LaunchDescription
 from launch.actions import (
     DeclareLaunchArgument,

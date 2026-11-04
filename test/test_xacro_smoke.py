@@ -84,11 +84,13 @@ def test_xacro_real_mode(controller_config: Path):
             f"base_path:={base}",
             f"controller_config:={controller_config}",
             "use_gazebo_sim:=false",
-            "use_mock_hardware:=true",
+            "use_mock_hardware:=false",
         ]
     )
     assert r.returncode == 0, r.stderr + r.stdout
     assert "<robot" in r.stdout
+    assert "lucy_ros2_control/LucySystemHardware" in r.stdout
+    assert '<param name="publisher_topic">actuators/marty</param>' in r.stdout
     for joint in ACTUATED_JOINTS:
         assert f'<joint name="{joint}"' in r.stdout
     meshes = re.findall(r'filename="file://([^"]+)"', r.stdout)

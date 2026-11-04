@@ -46,9 +46,9 @@ Mimic joints are left out of ros2_control; `robot_state_publisher` derives them.
 
 Real Marty servos are driven by Robotical's RIC controller, which Lucy has no driver for.
 `active.yaml` therefore declares a single placeholder `rp2040_marty` board
-(`internal_servo_only`, 9 PWM slots) with every actuator **`enabled: false`** and a neutral
-180-degree mapping (`offset` pi/2, travel clamped to 0..pi). Mock hardware works (Gazebo is not a
-target yet: its files are generated but untested);
+(`internal_servo_only`, 9 PWM slots) with every actuator **`enabled: false`** and placeholder
+servo windows sized to cover each URDF range. Mock hardware works. Gazebo spawns the model and
+activates its controllers, but its leg gains are untuned;
 calibrate offsets / limits and enable actuators only once a real board is wired.
 
 ## 5. Regenerate
@@ -74,5 +74,5 @@ Keep `config/hardware/configs/default.yaml` in sync with `active.yaml`.
 ```bash
 ros2 launch marty_urdf joint_preview.launch.py            # sliders + RViz, no control stack
 ros2 launch marty_urdf control.launch.py use_mock_hardware:=true
-ros2 launch marty_urdf gazebo.launch.py headless:=true   # untested, not a target yet
+ros2 launch lucy_bringup lucy.launch.py robot_package:=marty_urdf gazebo:=true headless:=true
 ```
