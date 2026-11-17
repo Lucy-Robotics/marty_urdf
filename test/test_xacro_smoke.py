@@ -24,8 +24,8 @@ from xacro_helper import run_xacro
 
 ACTUATED_JOINTS = (
     "eye_left_joint",
-    "arm_servo_gear_left_joint",
-    "arm_servo_gear_right_joint",
+    "arm_left_joint",
+    "arm_right_joint",
     "leg_left_thigh_joint",
     "leg_right_thigh_joint",
     "leg_left_twist_joint",
@@ -35,16 +35,16 @@ ACTUATED_JOINTS = (
 )
 
 TAGGED_FIXED_LINKS = {
-    "side_panel_left": "arm_servo_gear_left_joint",
-    "side_panel_right": "arm_servo_gear_right_joint",
+    "side_panel_left": "arm_left_joint",
+    "side_panel_right": "arm_right_joint",
     "hip_left": "leg_left_thigh_joint",
     "hip_right": "leg_right_thigh_joint",
     "leg_left_twist_upper": "leg_left_twist_joint",
     "leg_right_twist_upper": "leg_right_twist_joint",
     "leg_left_knee_lower": "leg_left_shin_joint",
     "leg_right_knee_lower": "leg_right_shin_joint",
-    "hand_left": "arm_servo_gear_left_joint",
-    "hand_right": "arm_servo_gear_right_joint",
+    "hand_left": "arm_left_joint",
+    "hand_right": "arm_right_joint",
 }
 
 
@@ -182,3 +182,13 @@ def test_unlit_leds_are_flat_and_invisible(controller_config: Path):
     assert visual.find("geometry/cylinder") is not None
     assert float(visual.find("geometry/cylinder").get("length")) < 0.001
     assert visual.find("material/color").get("rgba").split()[3] == "0"
+
+
+def test_the_servo_gears_follow_the_arms_at_the_gear_ratio(controller_config: Path):
+    robot = ET.fromstring(_expanded_urdf(controller_config))
+    joints = {j.get("name"): j for j in robot.findall("joint")}
+    for side in ("left", "right"):
+        assert joints[f"arm_{side}_joint"].find("mimic") is None
+        mimic = joints[f"arm_servo_gear_{side}_joint"].find("mimic")
+        assert mimic.get("joint") == f"arm_{side}_joint"
+        assert float(mimic.get("multiplier")) == pytest.approx(-1 / 1.307692308)

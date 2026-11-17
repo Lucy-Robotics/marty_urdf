@@ -4,8 +4,8 @@ generated_files:
   ros2_control_xacro: marty_ros2_control.xacro
   controllers_yaml: controllers.yaml
 passive_urdf_joints:
-  - arm_left_joint
-  - arm_right_joint
+  - arm_servo_gear_left_joint
+  - arm_servo_gear_right_joint
   - eye_right_joint
   - foot_left_joint
   - foot_right_joint
@@ -67,31 +67,31 @@ actuators:
     limit_max: 3.25
     default: 3.0
     enabled: false
-  - id: arm_servo_gear_left
-    urdf_joint: arm_servo_gear_left_joint
+  - id: arm_left
+    urdf_joint: arm_left_joint
     board: rp2040_marty
     virtual_pin: 1
     physical_pin: 2
     servo_type: '180'
-    offset: 0.95
+    offset: 2.68
     direction: 1
     scale: 1
     limit_min: 0
-    limit_max: 3.0
-    default: 0.95
+    limit_max: 3.92
+    default: 2.68
     enabled: false
-  - id: arm_servo_gear_right
-    urdf_joint: arm_servo_gear_right_joint
+  - id: arm_right
+    urdf_joint: arm_right_joint
     board: rp2040_marty
     virtual_pin: 2
     physical_pin: 3
     servo_type: '180'
-    offset: 0.95
+    offset: 2.68
     direction: 1
     scale: 1
     limit_min: 0
-    limit_max: 3.0
-    default: 0.95
+    limit_max: 3.92
+    default: 2.68
     enabled: false
   - id: leg_left_thigh
     urdf_joint: leg_left_thigh_joint
