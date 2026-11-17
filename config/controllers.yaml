@@ -54,8 +54,8 @@ marty_controller:
     allow_nonzero_velocity_at_trajectory_end: false
     joints:
       - eye_left_joint
-      - arm_servo_gear_left_joint
-      - arm_servo_gear_right_joint
+      - arm_left_joint
+      - arm_right_joint
       - leg_left_thigh_joint
       - leg_right_thigh_joint
       - leg_left_twist_joint
@@ -71,8 +71,8 @@ marty_torque_enable_controller:
   ros__parameters:
     joints:
       - eye_left_joint
-      - arm_servo_gear_left_joint
-      - arm_servo_gear_right_joint
+      - arm_left_joint
+      - arm_right_joint
       - leg_left_thigh_joint
       - leg_right_thigh_joint
       - leg_left_twist_joint

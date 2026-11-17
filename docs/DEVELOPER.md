@@ -35,7 +35,7 @@ Nine actuated joints, all on one `marty_controller` (JointTrajectoryController):
 | Joint | Moves |
 |-------|-------|
 | `eye_left_joint` | Eyes (`eye_right_joint` mimics, x-1) |
-| `arm_servo_gear_left_joint` / `arm_servo_gear_right_joint` | Arms (`arm_*_joint` mimic through the gear, x-1.3077) |
+| `arm_left_joint` / `arm_right_joint` | Arms (the servo gears `arm_servo_gear_*_joint` mimic them, x-0.7647) |
 | `leg_{left,right}_thigh_joint` | Hip pitch (parallel thigh + knee links mimic) |
 | `leg_{left,right}_twist_joint` | Leg twist |
 | `leg_{left,right}_shin_joint` | Knee roll (parallel shin + foot links mimic) |

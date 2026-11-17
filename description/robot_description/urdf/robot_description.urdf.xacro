@@ -19,11 +19,11 @@
     <origin xyz="0 0 0.15338" rpy="0 0 0"/>
   </xacro:fixed>
 
-  <xacro:fixed name="side_panel_left" parent="head" material="yellow" mesh="side_panel" visual_joint="arm_servo_gear_left_joint">
+  <xacro:fixed name="side_panel_left" parent="head" material="yellow" mesh="side_panel" visual_joint="arm_left_joint">
     <origin xyz="0.0025 0.05744  0.04221" rpy="-0.0361 0 0"/>
   </xacro:fixed>
 
-  <xacro:fixed name="side_panel_right" parent="head" material="yellow" mesh="side_panel" mesh_yaw="3.1416" visual_joint="arm_servo_gear_right_joint">
+  <xacro:fixed name="side_panel_right" parent="head" material="yellow" mesh="side_panel" mesh_yaw="3.1416" visual_joint="arm_right_joint">
     <origin xyz="0.0025 -0.05744 0.04221" rpy="0.0361 0 0"/>
   </xacro:fixed>
 
@@ -44,33 +44,33 @@
 
   <!-- Left arm -->
 
-  <xacro:revolute name="arm_servo_gear_left" parent="side_panel_left" material="yellow" mesh_pitch="-0.5585" mesh="arm_servo_gear" rot_p="1">
+  <xacro:revolute name="arm_servo_gear_left" parent="side_panel_left" material="yellow" mesh_pitch="-0.5585" mesh="arm_servo_gear" rot_p="1" mimic_joint="arm_left_joint" mimic_mult="-0.764705882">
     <origin xyz="0 0.00025 0" rpy="0 0 0"/>
     <limit effort="30" velocity="6.29" lower="-0.95" upper="2.05"/>
   </xacro:revolute>
 
-  <xacro:revolute name="arm_left" parent="side_panel_left" material="yellow" mesh="arm" rot_p="1" mimic_joint="arm_servo_gear_left_joint" mimic_mult="-1.307692308">
+  <xacro:revolute name="arm_left" parent="side_panel_left" material="yellow" mesh="arm" rot_p="1">
     <origin xyz="0 0 -0.03020" rpy="0 0 0"/>
     <limit effort="30" velocity="6.29" lower="-2.68" upper="1.24"/>
   </xacro:revolute>
 
-  <xacro:fixed name="hand_left" parent="arm_left" material="yellow" mesh="hand" visual_joint="arm_servo_gear_left_joint">
+  <xacro:fixed name="hand_left" parent="arm_left" material="yellow" mesh="hand" visual_joint="arm_left_joint">
     <origin xyz="0.00000 0.0330 -0.05539" rpy="0.3490658504 0 0"/>
   </xacro:fixed>
 
   <!-- Right arm -->
 
-  <xacro:revolute name="arm_servo_gear_right" parent="side_panel_right" material="yellow" mesh="arm_servo_gear" mesh_pitch="0.5585" mesh_yaw="3.1416" rot_p="1">
+  <xacro:revolute name="arm_servo_gear_right" parent="side_panel_right" material="yellow" mesh="arm_servo_gear" mesh_pitch="0.5585" mesh_yaw="3.1416" rot_p="1" mimic_joint="arm_right_joint" mimic_mult="-0.764705882">
     <origin xyz="0 -0.00025 0" rpy="0 0 0"/>
     <limit effort="30" velocity="6.29" lower="-0.95" upper="2.05"/>
   </xacro:revolute>
 
-  <xacro:revolute name="arm_right" parent="side_panel_right" material="yellow" mesh="arm" mesh_yaw="3.1416" rot_p="1" mimic_joint="arm_servo_gear_right_joint" mimic_mult="-1.307692308">
+  <xacro:revolute name="arm_right" parent="side_panel_right" material="yellow" mesh="arm" mesh_yaw="3.1416" rot_p="1">
     <origin xyz="0 0 -0.03020" rpy="0 0 0"/>
     <limit effort="30" velocity="6.29" lower="-2.68" upper="1.24"/>
   </xacro:revolute>
 
-  <xacro:fixed name="hand_right" parent="arm_right" material="yellow" mesh="hand" visual_joint="arm_servo_gear_right_joint">
+  <xacro:fixed name="hand_right" parent="arm_right" material="yellow" mesh="hand" visual_joint="arm_right_joint">
     <origin xyz="0.00000 -0.0330 -0.05539" rpy="-0.3490658504 0 0"/>
   </xacro:fixed>
 
