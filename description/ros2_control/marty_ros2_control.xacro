@@ -31,6 +31,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
       <joint name="arm_servo_gear_left_joint">
           <param name="virtual_pin">1</param>
@@ -49,6 +51,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
       <joint name="arm_servo_gear_right_joint">
           <param name="virtual_pin">2</param>
@@ -67,6 +71,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
       <joint name="leg_left_thigh_joint">
           <param name="virtual_pin">3</param>
@@ -85,6 +91,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
       <joint name="leg_right_thigh_joint">
           <param name="virtual_pin">4</param>
@@ -103,6 +111,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
       <joint name="leg_left_twist_joint">
           <param name="virtual_pin">5</param>
@@ -121,6 +131,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
       <joint name="leg_right_twist_joint">
           <param name="virtual_pin">6</param>
@@ -139,6 +151,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
       <joint name="leg_left_shin_joint">
           <param name="virtual_pin">7</param>
@@ -157,6 +171,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
       <joint name="leg_right_shin_joint">
           <param name="virtual_pin">8</param>
@@ -175,6 +191,8 @@
           <state_interface name="position" />
           <state_interface name="temperature" />
           <state_interface name="effort" />
+          <state_interface name="current" />
+          <state_interface name="load" />
       </joint>
   </ros2_control>
 
