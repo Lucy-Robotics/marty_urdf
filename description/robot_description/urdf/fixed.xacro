@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="fixed" params="name parent material mesh mesh_pitch:=0 mesh_yaw:=0 *origin">
+  <xacro:macro name="fixed" params="name parent material mesh mesh_pitch:=0 mesh_yaw:=0 visual_joint:='' *origin">
     <joint name="${name}_joint" type="fixed">
       <xacro:insert_block name="origin"/>
       <parent link="${parent}"/>
@@ -12,7 +12,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
       </inertial>
-      <visual>
+      <visual joint="${visual_joint}">
         <geometry>
           <mesh filename="${mesh_dir}/${mesh}.stl"/>
         </geometry>
