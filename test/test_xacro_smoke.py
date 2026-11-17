@@ -173,3 +173,12 @@ def test_each_eye_has_twelve_leds_with_own_material(controller_config: Path):
             assert f'<parent link="{eye}"/>' in urdf
             assert f'<material name="{led}_off">' in urdf
     assert '<link name="eye_left_led_12">' not in urdf
+
+
+def test_unlit_leds_are_flat_and_invisible(controller_config: Path):
+    robot = ET.fromstring(_expanded_urdf(controller_config))
+    led = next(link for link in robot.findall("link") if link.get("name") == "eye_left_led_0")
+    visual = led.find("visual")
+    assert visual.find("geometry/cylinder") is not None
+    assert float(visual.find("geometry/cylinder").get("length")) < 0.001
+    assert visual.find("material/color").get("rgba").split()[3] == "0"

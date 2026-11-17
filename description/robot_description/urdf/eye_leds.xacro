@@ -7,7 +7,7 @@
   <xacro:macro name="eye_led" params="eye index">
     <xacro:property name="angle" value="${2 * pi * index / eye_led_count}"/>
     <joint name="${eye}_led_${index}_joint" type="fixed">
-      <origin xyz="0.001 ${eye_led_ring_radius * sin(angle)} ${eye_led_ring_radius * cos(angle)}" rpy="0 0 0"/>
+      <origin xyz="0.0003 ${eye_led_ring_radius * sin(angle)} ${eye_led_ring_radius * cos(angle)}" rpy="0 0 0"/>
       <parent link="${eye}"/>
       <child link="${eye}_led_${index}"/>
     </joint>
@@ -18,11 +18,12 @@
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
       </inertial>
       <visual joint="eye_left_joint">
+        <origin xyz="0 0 0" rpy="0 ${pi / 2} 0"/>
         <geometry>
-          <sphere radius="${eye_led_radius}"/>
+          <cylinder radius="${eye_led_radius}" length="0.0002"/>
         </geometry>
         <material name="${eye}_led_${index}_off">
-          <color rgba="0.15 0.15 0.15 1"/>
+          <color rgba="0 0 0 0"/>
         </material>
       </visual>
     </link>
