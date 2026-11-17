@@ -90,7 +90,7 @@
     <limit effort="30" velocity="6.29" lower="-1.0" upper="1.0"/>
   </xacro:revolute>
 
-  <xacro:revolute name="leg_left_knee_upper" parent="leg_left_thigh_front" material="blue" mesh="knee_upper" mimic_joint="leg_left_thigh_joint" mimic_mult="-1" rot_p="1">
+  <xacro:revolute name="leg_left_knee_upper" parent="leg_left_thigh_front" material="blue" mesh="knee_upper" mimic_joint="leg_left_thigh_joint" mimic_mult="-1" rot_p="1" visual_joint="leg_left_twist_joint">
     <origin xyz="0.00000  -0.00015  -0.05000" rpy="0.0000 0.0000 0.0000"/>
     <limit effort="30" velocity="6.29" lower="-1.0" upper="1.0"/>
   </xacro:revolute>
@@ -139,7 +139,7 @@
     <limit effort="30" velocity="6.29" lower="-1.0" upper="1.0"/>
   </xacro:revolute>
 
-  <xacro:revolute name="leg_right_knee_upper" parent="leg_right_thigh_front" material="blue" mesh="knee_upper" mimic_joint="leg_right_thigh_joint" mimic_mult="-1" rot_p="1">
+  <xacro:revolute name="leg_right_knee_upper" parent="leg_right_thigh_front" material="blue" mesh="knee_upper" mimic_joint="leg_right_thigh_joint" mimic_mult="-1" rot_p="1" visual_joint="leg_right_twist_joint">
     <origin xyz="0.00000  -0.00015  -0.05000" rpy="0.0000 0.0000 0.0000"/>
     <limit effort="30" velocity="6.29" lower="-1.0" upper="1.0"/>
   </xacro:revolute>

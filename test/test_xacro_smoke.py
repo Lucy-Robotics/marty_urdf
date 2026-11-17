@@ -43,6 +43,8 @@ TAGGED_FIXED_LINKS = {
     "leg_right_twist_upper": "leg_right_twist_joint",
     "leg_left_knee_lower": "leg_left_shin_joint",
     "leg_right_knee_lower": "leg_right_shin_joint",
+    "leg_left_knee_upper": "leg_left_twist_joint",
+    "leg_right_knee_upper": "leg_right_twist_joint",
     "hand_left": "arm_left_joint",
     "hand_right": "arm_right_joint",
 }
@@ -155,7 +157,7 @@ def test_housings_and_mimic_links_tag_their_visual_with_the_moving_joint(
     for joint in robot.findall("joint"):
         mimic = joint.find("mimic")
         if mimic is not None:
-            expected[joint.find("child").get("link")] = mimic.get("joint")
+            expected.setdefault(joint.find("child").get("link"), mimic.get("joint"))
     tagged = {
         link.get("name"): link.find("visual").get("joint")
         for link in robot.findall("link")

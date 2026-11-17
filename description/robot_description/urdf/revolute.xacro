@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro
     name="revolute"
-    params="name parent material joint_name:='' mesh mesh_x:=0 mesh_y:=0 mesh_roll:=0 mesh_pitch:=0 mesh_yaw:=0 rot_r:=0 rot_p:=0 rot_y:=0 mimic_joint:='' mimic_mult:='' *origin *limit"
+    params="name parent material joint_name:='' mesh mesh_x:=0 mesh_y:=0 mesh_roll:=0 mesh_pitch:=0 mesh_yaw:=0 rot_r:=0 rot_p:=0 rot_y:=0 mimic_joint:='' mimic_mult:='' visual_joint:='' *origin *limit"
   >
     <xacro:if value="${joint_name == ''}">
       <xacro:property name="joint_name" value="${name}_joint"/>
@@ -23,7 +23,7 @@
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
       </inertial>
-      <visual joint="${mimic_joint}">
+      <visual joint="${visual_joint or mimic_joint}">
         <geometry>
           <mesh filename="${mesh_dir}/${mesh}.stl"/>
         </geometry>
