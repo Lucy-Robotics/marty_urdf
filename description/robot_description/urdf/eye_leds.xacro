@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="eye_led_count" value="12"/>
+  <xacro:property name="eye_led_ring_radius" value="0.018"/>
+  <xacro:property name="eye_led_radius" value="0.0025"/>
+
+  <xacro:macro name="eye_led" params="eye index">
+    <xacro:property name="angle" value="${2 * pi * index / eye_led_count}"/>
+    <joint name="${eye}_led_${index}_joint" type="fixed">
+      <origin xyz="0.0003 ${eye_led_ring_radius * sin(angle)} ${eye_led_ring_radius * cos(angle)}" rpy="0 0 0"/>
+      <parent link="${eye}"/>
+      <child link="${eye}_led_${index}"/>
+    </joint>
+    <link name="${eye}_led_${index}">
+      <inertial>
+        <mass value="1e-5"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
+      </inertial>
+      <visual joint="eye_left_joint">
+        <origin xyz="0 0 0" rpy="0 ${pi / 2} 0"/>
+        <geometry>
+          <cylinder radius="${eye_led_radius}" length="0.0002"/>
+        </geometry>
+        <material name="${eye}_led_${index}_off">
+          <color rgba="0 0 0 0"/>
+        </material>
+      </visual>
+    </link>
+  </xacro:macro>
+
+  <xacro:macro name="eye_leds" params="eye index:=0">
+    <xacro:eye_led eye="${eye}" index="${index}"/>
+    <xacro:if value="${index + 1 &lt; eye_led_count}">
+      <xacro:eye_leds eye="${eye}" index="${index + 1}"/>
+    </xacro:if>
+  </xacro:macro>
+</robot>
