@@ -149,6 +149,9 @@ def test_housings_and_mimic_links_tag_their_visual_with_the_moving_joint(
 ):
     robot = ET.fromstring(_expanded_urdf(controller_config))
     expected = dict(TAGGED_FIXED_LINKS)
+    for eye in ("eye_left", "eye_right"):
+        for index in range(12):
+            expected[f"{eye}_led_{index}"] = "eye_left_joint"
     for joint in robot.findall("joint"):
         mimic = joint.find("mimic")
         if mimic is not None:
@@ -159,3 +162,14 @@ def test_housings_and_mimic_links_tag_their_visual_with_the_moving_joint(
         if link.find("visual") is not None and link.find("visual").get("joint")
     }
     assert tagged == expected
+
+
+def test_each_eye_has_twelve_leds_with_own_material(controller_config: Path):
+    urdf = _expanded_urdf(controller_config)
+    for eye in ("eye_left", "eye_right"):
+        for index in range(12):
+            led = f"{eye}_led_{index}"
+            assert f'<link name="{led}">' in urdf
+            assert f'<parent link="{eye}"/>' in urdf
+            assert f'<material name="{led}_off">' in urdf
+    assert '<link name="eye_left_led_12">' not in urdf
